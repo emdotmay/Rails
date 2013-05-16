@@ -64,41 +64,66 @@
 #
 ###############################################################################
 
-print "Welcome to the Secret Number game! This game was created by Mary Mei"
+puts "\nWelcome to the Secret Number game! This game was created by Mary Mei"
 
-print "What's your name?"
-player_name = gets.chomp 
+puts "\nWhat's your name?"
+player_name = $stdin.gets.chomp 
 player_name.capitalize! 
 
-print "Hi" + " " + player_name "! You will have three chances to guess a number between 1 and 10"
+print "Hi, #{player_name}! You will have three chances to guess a number between 1 and 10"
 
 guesses_left = 3 #this will count how many more times a player can guess
 
-print "You have" + " " + guesses_left + "guesses left" #this tells the player how many guesses they have left
+print "You have" + " " + guesses_left.to_s + "guesses left" #this tells the player how many guesses they have left
 
 secret_number = 10 #this is the secret number
 
-print "Make your first guess!"
-guess = gets.chomp
+print "\nMake your first guess!"
+guess = $stdin.gets.chomp.to_i
 
-i = 0 #this is the beginning of the while loop
-
-while i < 3
-
-	if guess = secret_name 
-		print "Congrats! You've guessed the secret number!"
-		end 
-
-	else 
-	  guesses_left = guesses_left - 1 
-	  print "You have" + " " guesses_left + " " + "guesses left"
-	  if guess < secret_number 
+	if guess == secret_number 
+		print "Congrats! You've guessed the secret number!" 
+		exit
+	
+	  elsif guess < secret_number 
 	  	print "You've guessed too low, guess higher next time!"
-	  else 
+
+	  elsif guess > secret_number 
 	  	print "You've guessed too high, guess lower next time!"
+	
+	end
 
-i += 1
+guesses_left -= 1
 
-print "You lost! The secret number was" + " " + secret_number + "."
+print "You have" + " " + guesses_left + " " + "guesses left" 
 
-end 
+	if guess == secret_number 
+		print "Congrats! You've guessed the secret number!" 
+		exit
+	
+	  elsif guess < secret_number 
+	  	print "You've guessed too low, guess higher next time!"
+
+	  elsif guess > secret_number 
+	  	print "You've guessed too high, guess lower next time!"
+	
+	end
+
+
+guesses_left -= 1
+
+print "You have" + " " + guesses_left + " " + "guesses left" 
+
+	if guess == secret_number 
+		print "Congrats! You've guessed the secret number!" 
+		exit
+	
+	  elsif guess < secret_number 
+	  	print "You've guessed too low, guess higher next time!"
+
+	  elsif guess > secret_number 
+	  	print "You've guessed too high, guess lower next time!"
+	
+	end
+
+print "\nYou lost! The secret number was" + " " + secret_number.to_s + "."
